@@ -1,4 +1,4 @@
-// create-react-app: test setup file
+// jest setup file
 
 // custom jest matchers for testing-library
 import "@testing-library/jest-dom/extend-expect";

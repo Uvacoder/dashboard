@@ -3,10 +3,11 @@ import ReactModal, { Props as ReactModalProps } from "react-modal";
 import { useTranslation } from "react-i18next";
 import { Property } from "csstype";
 
+import { IS_TEST } from "common/environment";
 import Button from "components/button";
 import Icon from "components/icon";
 
-if (process.env.NODE_ENV !== "test") {
+if (!IS_TEST) {
   // bind modal to the root app element
   ReactModal.setAppElement("#root");
 } else {

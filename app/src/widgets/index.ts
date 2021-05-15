@@ -1,10 +1,10 @@
 import React from "react";
-import { injectSaga } from "redux-sagas-injector";
 
 import { TriggerUpdateAction, WidgetMeta } from "components/widget/duck";
 import { Dimensions } from "components/widget";
 import WidgetCategory from "widgets/categories";
 
+import { injectSaga } from "../state/injector/sagasInjector";
 import widgetProperties, { widgetImports, WidgetType } from "./list";
 
 export type ValueUpdateAction = ({

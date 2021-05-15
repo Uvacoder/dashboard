@@ -1,5 +1,4 @@
 import { applyMiddleware } from "redux";
-import { createInjectSagasStore, sagaMiddleware } from "redux-sagas-injector";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 import { IS_PRODUCTION, IS_STORAGE_PAUSED } from "common/environment";
@@ -7,6 +6,10 @@ import { ConfigState } from "common/ducks/config";
 import { LayoutState } from "common/ducks/layout";
 import { WidgetsState } from "components/widget/duck";
 
+import {
+  createInjectSagasStore,
+  sagaMiddleware,
+} from "./injector/sagasInjector";
 import { persistReducer, persistStore, pause } from "./localStorage";
 import { rootReducer } from "./reducers";
 import { rootSaga } from "./sagas";
@@ -32,7 +35,7 @@ const initStore = (initialState?: State) => {
 
   const enhancers = composeEnhancers(applyMiddleware(sagaMiddleware));
   const store = createInjectSagasStore(
-    { rootSaga },
+    rootSaga,
     persistReducer(rootReducer(initialState)),
     {},
     enhancers

@@ -6,7 +6,7 @@ const logLevel: Record<string, LogLevelDesc> = {
   test: logger.levels.ERROR,
 };
 
-logger.setDefaultLevel(logLevel[process.env.NODE_ENV || "production"]);
+logger.setDefaultLevel(logLevel[process.env.NODE_ENV ?? "production"]);
 
 /* Custom logger facade */
 const log = {
